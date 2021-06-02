@@ -1,0 +1,142 @@
+.datetime {
+  color: #fff;
+  background: #10101E;
+  font-family: "Segoe UI", sans-serif;
+  width: 340px;
+  border: 3px solid #2E94E3;
+  border-radius: 15px;
+}
+.date {
+  font-size: 20px;
+  font-weight: 600;
+  text-align: center;
+  letter-spacing: 3px;
+}
+
+.time {
+  font-size: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.time span:not(:last-child) {
+  position: relative;
+  margin: 0 6px;
+  font-weight: 600;
+  text-align: center;
+  letter-spacing: 3px;
+}
+
+.time span:last-child {
+
+  font-size: 30px;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-top: 10px;
+  padding: 0 5px;
+  border-radius: 3px;
+}
+
+#grad {
+  background: linear-gradient(115deg, #00004d 25%, #00001a 75%);
+}
+#t {
+  font-size: 60px;
+  text-align: center;
+}
+::selection{
+  color: #ffff;
+  background: rgb(142, 73, 232);
+}
+.wrapper{
+  background: #fff;
+  width: 100%;
+  padding: 25px;
+  border-radius: 5px;
+  box-shadow: 0px 10px 15px rgba(0,0,0,0.1);
+}
+.wrapper .inputField{
+  margin: 20px 0;
+  width: 100%;
+  display: flex;
+  height: 45px;
+}
+.inputField input{
+  width: 85%;
+  height: 100%;
+  outline: none;
+  border-radius: 3px;
+  border: 1px solid #8E49E8;
+  font-size: 17px;
+  padding-left: 15px;
+}
+.inputField button{
+  width: 80px;
+  height: 100%;
+  border: none;
+  color: #fff;
+  margin-left: 10px;
+  font-size: 17px;
+  outline: none;
+  background: #8E49E8;
+  cursor: pointer;
+  border-radius: 3px;
+  opacity: 0.6;
+}
+.inputField button:hover,
+.footer button:hover{
+  background: #6f00ff;
+}
+.inputField button.active{
+  opacity: 1;
+  pointer-events: auto;
+}
+.announcementList li{
+  position: relative;
+  list-style: none;
+  font-size: 30px;
+  color: #ff0000;
+  line-height: 45px;
+  margin-bottom: 20px;
+  background: #f2f2f2;
+  border-radius: 3px;
+  padding: 0 15px;
+  cursor: default;
+  overflow: visible;
+}
+.announcementList li .icon{
+  position: absolute;
+  right: -45px;
+  background: #e74c3c;
+  height: 45px;
+  width: 45px;
+  text-align: center;
+  color: #fff;
+  border-radius: 0 3px 3px 0;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.announcementList li:hover .icon{
+  right: 0px;
+}
+.footer button{
+  padding: 7px 10px;
+  border-radius: 3px;
+  border: none;
+  outline: none;
+  color: #fff;
+  font-weight: 400;
+  font-size: 16px;
+  margin-left: 5px;
+  background: #8E49E8;
+  cursor: pointer;
+  user-select: none;
+  opacity: 0.6;
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+.footer button.active{
+  opacity: 1;
+  pointer-events: auto;
+}

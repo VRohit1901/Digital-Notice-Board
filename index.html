@@ -1,0 +1,202 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Digital Notice Board</title>
+        <link rel="stylesheet" href="assets/bootstrap.css">
+        <link rel="stylesheet" href="assets/style.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    </head>
+    <body id="grad" onload="initClock()">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-9">
+                    <br>
+                    <br>
+                    <nav class="navbar navbar-dark">
+                        <div class="container-fluid">
+                            <a id="t" class="navbar-brand">                              
+                                <img src="assets/logo.png" alt="" width="90" height="90" class="d-inline-block align-text-top">
+                                Vignan's Institute of Information Technology
+                            </a>
+                        </div>
+                    </nav>
+                </div>
+                <div class="col">
+                    <br>
+                    <br>
+                    <div class="datetime">
+                        <div class="date">
+                            <span id="dayname">Day</span>,
+                            <span id="month">Month</span>
+                            <span id="daynum">00</span>,
+                            <span id="year">Year</span>
+                        </div>
+                        <div class="time">
+                            <span id="hour">00</span>:
+                            <span id="minutes">00</span>:
+                            <span id="seconds">00</span>
+                            <span id="period">AM</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+        <br>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col border border-3 border-dark">
+                    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-indicators">
+                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4" aria-label="Slide 5"></button>
+                        </div>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="images/1.jpg" width="800" height="730" class="d-block w-100" alt="...">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="images/2.jpg" width="800" height="730" class="d-block w-100" alt="...">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="images/3.jpg" width="800" height="730" class="d-block w-100" alt="...">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="images/4.jpg" width="800" height="730" class="d-block w-100" alt="...">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="images/5.jpg" width="800" height="730" class="d-block w-100" alt="...">
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="wrapper border border-3 border-dark">
+                        <center>
+                            <h1>Announcements</h1>
+                        </center>
+                        <div class="inputField">
+                            <input id="in" type="text" placeholder="Add new announcement">
+                            <button id="btn">
+                                <i class="fas fa-plus"></i>
+                                Add
+                            </button>
+                        </div>
+                        <marquee behavior="scroll" direction="up" onmouseover="this.stop();" onmouseout="this.start();" height="69.4%" scrollamount="3">
+                            <ul class="announcementList"></ul>
+                        </marquee>
+                        <div class="footer">
+                            <button>Clear All</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <script type="text/javascript">
+                function updateClock() {
+                    var now = new Date();
+                    var dname = now.getDay(),
+                        mo = now.getMonth(),
+                        dnum = now.getDate(),
+                        yr = now.getFullYear(),
+                        hou = now.getHours(),
+                        min = now.getMinutes(),
+                        sec = now.getSeconds(),
+                        pe = "AM";
+
+                    if (hou >= 12) {
+                        pe = "PM";
+                    }
+                    if (hou == 0) {
+                        hou = 12;
+                    }
+                    if (hou > 12) {
+                        hou = hou - 12;
+                    }
+
+                    Number.prototype.pad = function (digits) {
+                        for (var n = this.toString(); n.length < digits; n = 0 + n);
+                        
+
+                        return n;
+                    }
+
+                    var months = [
+                        "January",
+                        "February",
+                        "March",
+                        "April",
+                        "May",
+                        "June",
+                        "July",
+                        "Augest",
+                        "September",
+                        "October",
+                        "November",
+                        "December"
+                    ];
+                    var week = [
+                        "Sunday",
+                        "Monday",
+                        "Tuesday",
+                        "Wednesday",
+                        "Thursday",
+                        "Friday",
+                        "Saturday"
+                    ];
+                    var ids = [
+                        "dayname",
+                        "month",
+                        "daynum",
+                        "year",
+                        "hour",
+                        "minutes",
+                        "seconds",
+                        "period"
+                    ];
+                    var values = [
+                        week[dname],
+                        months[mo],
+                        dnum.pad(2),
+                        yr,
+                        hou.pad(2),
+                        min.pad(2),
+                        sec.pad(2),
+                        pe
+                    ];
+                    for (var i = 0; i < ids.length; i++) 
+                        document.getElementById(ids[i]).firstChild.nodeValue = values[i];
+                    
+
+                }
+
+                function initClock() {
+                    updateClock();
+                    window.setInterval("updateClock()", 1);
+                }
+            </script>
+            <script>
+                var input = document.getElementById("in");
+                input.addEventListener("keyup", function (event) {
+                    if (event.keyCode === 13) {
+                        event.preventDefault();
+                        document.getElementById("btn").click();
+                    }
+                });
+            </script>
+            <script src="assets/script.js"></script>
+            <script src="assets/bootstrap.js"></script>
+        </body>
+    </body>
+</html>
