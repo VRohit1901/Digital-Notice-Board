@@ -40,6 +40,7 @@
 
 #grad {
   background: linear-gradient(115deg, #00004d 25%, #00001a 75%);
+  background-size: 100%;
 }
 #t {
   font-size: 60px;
