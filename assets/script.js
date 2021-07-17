@@ -24,7 +24,9 @@ addBtn.onclick = ()=>{
   }
   listArray.push(userEnteredValue);
   localStorage.setItem("announcement", JSON.stringify(listArray));
+  window.location.reload();
   showTasks();
+  reload(index.html);
   addBtn.classList.remove("active");
 }
 
