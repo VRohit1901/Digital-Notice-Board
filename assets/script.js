@@ -2,6 +2,15 @@ const inputBox = document.querySelector(".inputField input");
 const addBtn = document.querySelector(".inputField button");
 const announcementList = document.querySelector(".announcementList");
 const deleteAllBtn = document.querySelector(".footer button");
+let button = document.querySelector('.inputField button');
+
+button.addEventListener('click', () => {
+  if(!window.Notification) return;
+ 
+  Notification
+  .requestPermission()
+  .then(showNotification)
+});
 
 inputBox.onkeyup = ()=>{
   let userEnteredValue = inputBox.value; 
@@ -24,9 +33,7 @@ addBtn.onclick = ()=>{
   }
   listArray.push(userEnteredValue);
   localStorage.setItem("announcement", JSON.stringify(listArray));
-  window.location.reload();
   showTasks();
-  reload(index.html);
   addBtn.classList.remove("active");
 }
 
@@ -62,4 +69,15 @@ deleteAllBtn.onclick = ()=>{
   listArray = [];
   localStorage.setItem("announcement", JSON.stringify(listArray));
   showTasks();
+}
+
+function showNotification(permission){
+    if(permission !== 'granted') return;
+    let notification = new Notification('New Announcement', {
+        body:listArray[listArray.length-1],
+        icon:'assets/logo.png'        
+    })
+    notification.onclick = () => {
+        window.location.href= "https://www.google.com"
+    }
 }
