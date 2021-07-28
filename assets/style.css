@@ -46,6 +46,10 @@
   font-size: 60px;
   text-align: center;
 }
+#u {
+  font-size: 20px;
+  text-align: center;
+}
 ::selection{
   color: #ffff;
   background: rgb(142, 73, 232);
