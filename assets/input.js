@@ -19,7 +19,7 @@ recognition.onresult = function(event) {
     Textbox.val(Content);
   
 };
-
+ 
 recognition.onstart = function() { 
   instructions.text('Voice recognition is ON.');
 }
@@ -39,6 +39,14 @@ $('#start-btn').on('click', function(e) {
     Content += ' ';
   }
   recognition.start();
+});
+
+$('#stop-btn').on('click', function(e) {
+  if (Content.length) {
+    Content += ' ';
+  }
+  instructions.text('Voice recognition is OFF.');
+  recognition.stop();
 });
 
 Textbox.on('input', function() {

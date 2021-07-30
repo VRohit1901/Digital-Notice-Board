@@ -6,7 +6,6 @@ let button = document.querySelector('.inputField button');
 
 button.addEventListener('click', () => {
   if(!window.Notification) return;
- 
   Notification
   .requestPermission()
   .then(showNotification)
@@ -78,6 +77,6 @@ function showNotification(permission){
         icon:'assets/logo.png'        
     })
     notification.onclick = () => {
-        window.location.href= "https://www.google.com"
+        window.location.href= "https://vrohit1901.github.io/Digital-Notice-Board/student.html"
     }
 }
