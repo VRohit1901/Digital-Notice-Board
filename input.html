@@ -3,22 +3,147 @@
         <title>Speech to text conversion using JavaScript</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">      
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
-    </head>
-    <body>
-            <h1>Speech to text conversion using JavaScript</h1>
+        <style>
+            body.bg
+            {
+                background: rgb(34,193,195);
+                background: linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(253,187,45,1) 100%);
+            }
+            h1.head
+            {
+                text-align: center;
+                margin-top: 4%;
+                margin-bottom: 3%;
+            }
 
+            button.ad-btn
+            {
+                border-radius: 4px;
+                background-color: #f4511e;
+                border: none;
+                color: #FFFFFF;
+                text-align: center;
+                font-size: 110%;
+                padding: 1%;
+                width: 20%;
+                transition: all 0.5s;
+                cursor: pointer;
+                margin: 5px;
+            }
+            button.ad-btn span
+            {
+                cursor: pointer;
+                display: inline-block;
+                position: relative;
+                transition: 0.5s;
+            }
+            button.ad-btn span:after
+            {
+                content: '\00bb';
+                position: absolute;
+                opacity: 0;
+                top: 0;
+                right: -20px;
+                transition: 0.5s;
+            }
+            button.ad-btn:hover span
+            {
+                padding-right: 25px;
+            }
+            button.ad-btn:hover span:after
+            {
+                opacity: 1;
+                right: 0;
+            }
+
+
+            div.cen
+            {
+                text-align: center;
+            }
+
+            button.r-btn
+            {
+                padding: 5% 10%;
+                font-size: 110%;
+                cursor: pointer;
+                outline: none;
+                color: #fff;
+                background-color: #04AA6D;
+                border: none;
+                border-radius: 15px;
+                box-shadow: 0 9px rgb(103, 103, 138);
+            }
+            button.r-btn:hover
+            {
+                background-color: #3e8e41
+            }
+            button.r-btn:active
+            {
+                background-color: #3e8e41;
+                box-shadow: 0 5px #666;
+                transform: translateY(4px);
+            }
+
+            button.clr-btn
+            {
+                position: relative;
+                background-color: hsl(159, 100%, 12%);
+                border: none;
+                font-size: 110%;
+                color: #FFFFFF;
+                padding: 4%;
+                width: 30%;
+                text-align: center;
+                -webkit-transition-duration: 0.4s;
+                transition-duration: 0.4s;
+                text-decoration: none;
+                overflow: hidden;
+                cursor: pointer;
+            }
+            button.clr-btn:after
+            {
+                content: "";
+                background: #90EE90;
+                display: block;
+                position: absolute;
+                padding-top: 300%;
+                padding-left: 350%;
+                margin-left: -20px!important;
+                margin-top: -120%;
+                opacity: 0;
+                transition: all 0.8s
+            }
+            button.clr-btn:active:after
+            {
+                padding: 0;
+                margin: 0;
+                opacity: 1;
+                transition: 0s
+            }
+        </style>
+    </head>
+    <body class="bg">
+            <h1 class="head">Speech-to-Text Converter</h1>
+            <br><br>
+            <div class="cen">
             <div class="inputField">
                 <input id="textbox" type="text" placeholder="Add new announcement">
-                <button id="btn">
-                    Add
+                <br><br>
+                <button id="btn" class="ad-btn">
+                    <span>Add </span>
                 </button>
             </div>
-            <button id="start-btn" title="Start">Record</button>
-            <p id="instructions">Press the Record button</p>
-            <button id="stop-btn" title="Stop">Stop Recording</button>
+            </div>
+            <br><br><br><br>
+            <button id="start-btn" title="Start" class="r-btn" style="margin-left: 31%;">Record</button>
+            <br><br>
+            <p id="instructions" style="text-align: center;">Press 'Record' button to Start</p>
+            <button id="stop-btn" title="Stop" class="r-btn" style="margin-left: 23%;">Stop Recording</button>
+            <br><br><br>
             <ul class="announcementList"></ul>
             <div class="footer">
-                <button>Clear All</button>
+                <button class="clr-btn" style="margin-left: 33%;">Clear All</button>
             </div>
             
         <script>
